@@ -12,7 +12,7 @@ A clean, well-documented starting point for managing your macOS system declarati
 
 1. **Install Nix** using the [Determinate Systems installer](https://docs.determinate.systems/#products) (download the graphical installer for macOS). After installation, restart your terminal.
 
-2. **Install Homebrew** from [brew.sh](https://brew.sh) if you want to use the GUI applications included in this configuration.
+**Note:** Homebrew is managed declaratively via nix-homebrew - if you already have it installed, it will auto-migrate. Otherwise, it's installed automatically.
 
 ## Quick Start
 
@@ -49,7 +49,7 @@ nix-switch
 
 **GUI Applications**: Cursor, Ghostty, VS Code, Zed, Raycast, CleanShot, Discord, Slack, 1Password, Brave Browser, Obsidian, Spotify
 
-**System Configuration**: Git setup, macOS optimizations (Finder, Touch ID sudo), Nix settings (flakes, garbage collection)
+**System Configuration**: Git setup, macOS optimizations (Finder, Touch ID sudo), Nix settings (flakes, garbage collection), declarative Homebrew management
 
 ## Project Structure
 
@@ -83,7 +83,7 @@ nix-macos-starter/
 
 **"Command not found"**: Restart terminal  
 **Permission denied**: Use `sudo darwin-rebuild switch --flake .#my-macbook`  
-**Homebrew apps not installing**: Install Homebrew first, ensure `/opt/homebrew/bin` in PATH  
+**Homebrew apps not installing**: nix-homebrew handles this automatically; ensure `/opt/homebrew/bin` in PATH  
 **Git config not applying**: Replace all `YOUR_*` placeholders, re-run darwin-rebuild
 
 **Need help?** Check [Nix manual](https://nixos.org/manual/nix/stable/), [nix-darwin docs](https://github.com/LnL7/nix-darwin), [Home Manager options](https://nix-community.github.io/home-manager/options.html)
