@@ -14,7 +14,8 @@
         "nix-command"
         "flakes"
       ];
-      auto-optimise-store = true;
+      # disabled due to https://github.com/NixOS/nix/issues/7273
+      # auto-optimise-store = true;
     };
     gc = {
       automatic = true;
