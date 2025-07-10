@@ -21,8 +21,8 @@
       # host-specific shell aliases, etc.
       zsh = {
         initContent = ''
-          # Source custom scripts
-          source ${./custom-scripts.sh}
+          # Source shell functions
+          source ${./shell-functions.sh}
         '';
       };
     };
