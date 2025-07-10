@@ -1,4 +1,5 @@
-_: {
+{ primaryUser, ... }:
+{
   programs.git = {
     enable = true;
     userName = "YOUR_NAME"; # TODO replace
@@ -10,7 +11,7 @@ _: {
 
     extraConfig = {
       github = {
-        user = "YOUR_USERNAME"; # TODO replace
+        user = primaryUser;
       };
       init = {
         defaultBranch = "main";

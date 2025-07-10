@@ -30,10 +30,8 @@ cd ~/.config/nix
 
 **Replace all placeholders:**
 
-- `modules/git.nix`: `YOUR_NAME`, `YOUR_EMAIL`, `YOUR_USERNAME`
-- `modules/home-manager.nix`: `YOUR_USERNAME`
-- `platforms/darwin.nix`: `YOUR_USERNAME` (appears 3 times)
-- `hosts/my-macbook/configuration.nix`: `YOUR_USERNAME`
+- `flake.nix`: `YOUR_USERNAME` (this sets the username for the entire system)
+- `home/git.nix`: `YOUR_NAME`, `YOUR_EMAIL`
 
 ### 3. Apply the Configuration
 
@@ -58,26 +56,27 @@ nix-switch
 ```
 nix-macos-starter/
 ├── flake.nix                    # Main flake configuration and inputs
-├── hosts/
-│   └── my-macbook/
-│       ├── configuration.nix    # Host-specific packages and settings
-│       └── custom-scripts.sh    # Custom shell scripts
-├── modules/
+├── darwin/
+│   ├── default.nix              # Core macOS system configuration
+│   ├── settings.nix             # macOS UI/UX preferences and defaults
+│   └── homebrew-common.nix      # GUI applications via Homebrew
+├── home/
+│   ├── default.nix              # Home Manager configuration entry point
+│   ├── packages.nix             # Package declarations and mise setup
 │   ├── git.nix                  # Git configuration
-│   ├── home-manager.nix         # User packages and home directory setup
-│   ├── homebrew-common.nix      # GUI applications via Homebrew
-│   ├── mise.nix                 # Development runtime management
-│   └── zsh.nix                  # Shell configuration
-└── platforms/
-    ├── darwin.nix               # macOS-specific system settings
-    └── shared.nix               # Cross-platform Nix settings
+│   ├── shell.nix                # Shell configuration
+│   └── mise.nix                 # Development runtime management
+└── hosts/
+    └── my-macbook/
+        ├── configuration.nix    # Host-specific packages and settings
+        └── custom-scripts.sh    # Custom shell scripts
 ```
 
 ## Customization
 
-**Add CLI Tools**: Edit `modules/home-manager.nix` packages array  
-**Add GUI Apps**: Edit `modules/homebrew-common.nix` casks array  
-**Add Development Tools**: Add `${pkgs.mise}/bin/mise use --global tool@version` to `modules/home-manager.nix` activation script  
+**Add CLI Tools**: Edit `home/packages.nix` packages array  
+**Add GUI Apps**: Edit `darwin/homebrew-common.nix` casks array  
+**Add Development Tools**: Add `${pkgs.mise}/bin/mise use --global tool@version` to `home/mise.nix` activation script  
 **Host-Specific Config**: Use `hosts/my-macbook/configuration.nix` and `custom-scripts.sh`
 
 ## Troubleshooting

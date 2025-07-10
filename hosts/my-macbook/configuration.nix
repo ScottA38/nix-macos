@@ -1,16 +1,12 @@
 {
   pkgs,
+  primaryUser,
   ...
 }:
 {
-  imports = [
-    ../../platforms/darwin.nix
-  ];
-
   networking.hostName = "my-macbook";
 
-  # TODO: replace with your username
-  home-manager.users.YOUR_USERNAME = {
+  home-manager.users.${primaryUser} = {
     # home-manager packages and configuration
     home.packages = with pkgs; [
       graphite-cli
@@ -21,7 +17,7 @@
       zsh = {
         initContent = ''
           # Source custom scripts
-          [ -f ~/.config/nix/hosts/my-macbook/custom-scripts.sh ] && source ~/.config/nix/hosts/my-macbook/custom-scripts.sh
+          source ${./custom-scripts.sh}
         '';
       };
     };
