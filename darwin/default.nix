@@ -1,15 +1,16 @@
 {
   pkgs,
   inputs,
-  self,
   primaryUser,
+  nix-homebrew,
   ...
 }:
 {
   imports = [
-    ./homebrew-common.nix
+    ./homebrew.nix
     ./settings.nix
     inputs.home-manager.darwinModules.home-manager
+    nix-homebrew.darwinModules.nix-homebrew
   ];
 
   # home-manager configuration (integrates with nix-darwin)
@@ -21,24 +22,22 @@
         ../home
       ];
     };
-    extraSpecialArgs = {
-      inherit inputs self;
-    };
   };
 
-  # macOS-specific settings (system-level)
+  # nix-homebrew configuration
+  nix-homebrew = {
+    enable = true;
+    user = primaryUser;
+    autoMigrate = true;
+  };
+
+  users.users.${primaryUser}.shell = pkgs.zsh;
+
+  # macOS-specific Nix settings
   nix.enable = false; # using determinate installer
-  nixpkgs = {
-    hostPlatform = "aarch64-darwin";
-    config.allowUnfree = true; # Allow unfree packages
-  };
+  nixpkgs.config.allowUnfree = true; # allow unfree packages
 
-  system.primaryUser = primaryUser;
-  users.users.${primaryUser} = {
-    home = "/Users/${primaryUser}";
-    shell = pkgs.zsh;
-  };
-
+  # add homebrew to PATH
   environment = {
     systemPath = [
       "/opt/homebrew/bin"

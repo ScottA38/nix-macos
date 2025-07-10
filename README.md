@@ -59,7 +59,7 @@ nix-macos-starter/
 ├── darwin/
 │   ├── default.nix              # Core macOS system configuration
 │   ├── settings.nix             # macOS UI/UX preferences and defaults
-│   └── homebrew-common.nix      # GUI applications via Homebrew
+│   └── homebrew.nix             # GUI applications via Homebrew
 ├── home/
 │   ├── default.nix              # Home Manager configuration entry point
 │   ├── packages.nix             # Package declarations and mise setup
@@ -75,9 +75,9 @@ nix-macos-starter/
 ## Customization
 
 **Add CLI Tools**: Edit `home/packages.nix` packages array  
-**Add GUI Apps**: Edit `darwin/homebrew-common.nix` casks array  
+**Add GUI Apps**: Edit `darwin/homebrew.nix` casks array  
 **Add Development Tools**: Add `${pkgs.mise}/bin/mise use --global tool@version` to `home/mise.nix` activation script  
-**Host-Specific Config**: Use `hosts/my-macbook/configuration.nix` and `custom-scripts.sh`
+**Host-Specific Config**: Use `hosts/my-macbook/configuration.nix` for machine-specific packages/apps and `custom-scripts.sh` for shell scripts
 
 ## Troubleshooting
 
