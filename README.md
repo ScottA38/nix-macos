@@ -47,7 +47,7 @@ nix-switch
 
 **Development Tools**: [mise](https://mise.jdx.dev/) for Node.js/Python/Rust/etc., Zsh with Starship prompt, essential CLI tools (curl, vim, tmux, htop, tree, ripgrep, gh, zoxide), code quality tools (nil, biome, nixfmt-rfc-style)
 
-**GUI Applications**: Cursor, Ghostty, VS Code, Zed, Raycast, CleanShot, Discord, Slack, 1Password, Brave Browser, Obsidian, Spotify
+**GUI Applications**: Cursor, Ghostty, VS Code, Zed, Raycast, CleanShot, HiddenBar, BetterDisplay, Discord, Slack, 1Password, Brave Browser, Obsidian, Spotify
 
 **System Configuration**: Git setup, macOS optimizations (Finder, Touch ID sudo), Nix settings (flakes, garbage collection), declarative Homebrew management
 
@@ -69,7 +69,7 @@ nix-macos-starter/
 └── hosts/
     └── my-macbook/
         ├── configuration.nix    # Host-specific packages and settings
-        └── custom-scripts.sh    # Custom shell scripts
+        └── shell-functions.sh   # Custom shell scripts
 ```
 
 ## Customization
