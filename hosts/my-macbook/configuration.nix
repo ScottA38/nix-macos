@@ -11,14 +11,13 @@
     # "slack"
   ];
 
+  # host-specific home-manager configuration
   home-manager.users.${primaryUser} = {
-    # home-manager packages and configuration
     home.packages = with pkgs; [
       graphite-cli
     ];
 
     programs = {
-      # host-specific shell aliases, etc.
       zsh = {
         initContent = ''
           # Source shell functions

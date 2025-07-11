@@ -1,6 +1,6 @@
-# Convenient shell functions
+# convenient shell functions
 
-# Quick navigation to project root (finds git repo root)
+# quick navigation to git repo root
 function cdroot() {
     local root
     root=$(git rev-parse --show-toplevel 2>/dev/null)

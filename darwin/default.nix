@@ -1,8 +1,8 @@
 {
   pkgs,
   inputs,
+  self,
   primaryUser,
-  nix-homebrew,
   ...
 }:
 {
@@ -10,10 +10,32 @@
     ./homebrew.nix
     ./settings.nix
     inputs.home-manager.darwinModules.home-manager
-    nix-homebrew.darwinModules.nix-homebrew
+    inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
-  # home-manager configuration (integrates with nix-darwin)
+  # nix config
+  nix = {
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      # disabled due to https://github.com/NixOS/nix/issues/7273
+      # auto-optimise-store = true;
+    };
+    enable = false; # using determinate installer
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
+  # homebrew installation manager
+  nix-homebrew = {
+    user = primaryUser;
+    enable = true;
+    autoMigrate = true;
+  };
+
+  # home-manager config
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -22,27 +44,21 @@
         ../home
       ];
     };
+    extraSpecialArgs = {
+      inherit inputs self primaryUser;
+    };
   };
 
-  # nix-homebrew configuration
-  nix-homebrew = {
-    enable = true;
-    user = primaryUser;
-    autoMigrate = true;
+  # macOS-specific settings
+  system.primaryUser = primaryUser;
+  users.users.${primaryUser} = {
+    home = "/Users/${primaryUser}";
+    shell = pkgs.zsh;
   };
-
-  users.users.${primaryUser}.shell = pkgs.zsh;
-
-  # macOS-specific Nix settings
-  nix.enable = false; # using determinate installer
-  nixpkgs.config.allowUnfree = true; # allow unfree packages
-
-  # add homebrew to PATH
   environment = {
     systemPath = [
       "/opt/homebrew/bin"
     ];
     pathsToLink = [ "/Applications" ];
   };
-
 }
