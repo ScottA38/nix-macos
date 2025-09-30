@@ -1,5 +1,5 @@
 {
-  description = "My system configuration";
+  description = "Scott'so nix-darwin system flake";
   inputs = {
     # monorepo w/ recipes ("derivations")
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -14,6 +14,8 @@
 
     # declarative homebrew management
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
@@ -26,13 +28,10 @@
       ...
     }@inputs:
     let
-      # TODO: replace with your username
-      primaryUser = "YOUR_USERNAME";
+      primaryUser = "srmes";
     in
     {
-      # build darwin flake using:
-      # $ darwin-rebuild build --flake .#<name>
-      darwinConfigurations."my-macbook" = darwin.lib.darwinSystem {
+      darwinConfigurations."Scotts-MacBook-Pro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin
@@ -40,6 +39,5 @@
         ];
         specialArgs = { inherit inputs self primaryUser; };
       };
-
     };
 }

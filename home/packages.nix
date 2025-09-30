@@ -12,6 +12,9 @@
       gh
       zoxide
 
+      #zsh tools 
+      starship
+
       # programming languages
       mise # node, deno, bun, rust, python, etc.
 
@@ -26,6 +29,10 @@
       # fonts
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
+
+      #Extras
+      symfony-cli
+      yarn
     ];
   };
 }

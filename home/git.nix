@@ -2,12 +2,17 @@
 {
   programs.git = {
     enable = true;
-    userName = "YOUR_NAME"; # TODO replace
-    userEmail = "YOUR_EMAIL"; # TODO replace
-
     lfs.enable = true;
 
+    userName = "ScottA38";
+    userEmail = "simple.scott.94@googlemail.com"; 
+
     ignores = [ "**/.DS_STORE" ];
+
+    aliases = {
+      s = "status";
+      remv = "remote -v";
+    };
 
     extraConfig = {
       github = {
