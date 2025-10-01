@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 {
   programs.zsh = {
@@ -7,38 +7,59 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    /*
-    zshConfigEarlyInit = lib.mkOrder 1000 ''
-      if [ -e "$HOME/.env" ]; then
-        source "$HOME/.env"
-      fi
+    initContent =
+      let
+        zshConfigEarlyInit = lib.mkOrder 1000 ''
+          if [ -e "$HOME/.env" ]; then
+            source "$HOME/.env"
+          fi
 
-      ssh-add --apple-load-keychain 2>/dev/null || true
-    '';
-    */
+          ssh-add --apple-load-keychain 2>/dev/null || true
+        '';
+
+        zshConfigGeneral = lib.mkOrder 1500 ''
+          export PATH="$HOME/.nix-profile/bin:$PATH"
+          export PATH="$HOME/.cargo/bin:$PATH"
+          export PATH="/run/current-system/sw/bin:$PATH"
+          export PATH="/opt/homebrew/bin:$PATH"
+          export PATH="/opt/local/bin:$PATH"
+
+          export MANPAGER="nvim +Man!"
+        '';
+      in
+      lib.mkMerge [
+        zshConfigEarlyInit
+        zshConfigGeneral
+      ];
 
     shellAliases = {
       la = "ls -la";
       ".." = "cd ..";
-      "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix";
+      "darwin-sw" = "sudo darwin-rebuild switch --flake"; 
     };
 
     dirHashes = {
       projects = "$HOME/Projects";
+      dev = "$HOME/dev";
       sw-apps = "./custom/apps/";
       sw-plugins = "./custom/plugins/";
       nix = "$HOME/.config/nix";
     };
+
+    history = {
+      size = 10000;
+      save = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+      ignoreAllDups = true;
+      ignoreSpace = true;
+      expireDuplicatesFirst = true;
+      share = true;
+      extended = true;
+    };
   };
 
+  # Load zsh plugins
   programs.starship = {
     enable = true;
-    settings = {
-      add_newline = false;
-      character = {
-        success_symbol = "[λ](bold green)";
-        error_symbol = "[λ](bold red)";
-      };
-    };
   };
 }

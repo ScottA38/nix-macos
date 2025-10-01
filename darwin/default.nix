@@ -6,6 +6,10 @@
   ...
 }:
 {
+  environment.systemPackages = [
+    pkgs.curl
+  ];
+
   imports = [
     ./homebrew.nix
     ./settings.nix

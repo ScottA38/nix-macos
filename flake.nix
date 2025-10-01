@@ -1,5 +1,6 @@
 {
   description = "Scott'so nix-darwin system flake";
+
   inputs = {
     # monorepo w/ recipes ("derivations")
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -35,7 +36,7 @@
         system = "aarch64-darwin";
         modules = [
           ./darwin
-          ./hosts/my-macbook/configuration.nix
+          ./hosts/srmes-laptop/configuration.nix
         ];
         specialArgs = { inherit inputs self primaryUser; };
       };

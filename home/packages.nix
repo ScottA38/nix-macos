@@ -2,37 +2,51 @@
 {
   home = {
     packages = with pkgs; [
-      # dev tools
+      #System tools
       curl
       vim
+      jq
       tmux
       htop
       tree
       ripgrep
-      gh
       zoxide
+      ffmpeg
 
       #zsh tools 
       starship
 
+      #Browser
+      brave
+
       # programming languages
-      mise # node, deno, bun, rust, python, etc.
+      #mise # node, deno, bun, rust, python, etc.
 
       # misc
       nil
       biome
       nixfmt-rfc-style
       yt-dlp
-      ffmpeg
       ollama
 
       # fonts
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
 
-      #Extras
+      # containers
+      docker
+
+      #Dev tools
+      neovim 
+      gh
       symfony-cli
       yarn
+      glow
+      awscli2
+      devenv
+
+      #IDEs
+      vscode
     ];
   };
 }
