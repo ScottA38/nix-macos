@@ -13,14 +13,13 @@
       zoxide
       ffmpeg
 
-      #zsh tools 
+      # shell tools
+      #neovim 
       starship
+      vimPlugins.markdown-preview-nvim
 
       #Browser
       brave
-
-      # programming languages
-      #mise # node, deno, bun, rust, python, etc.
 
       # misc
       nil
@@ -37,7 +36,6 @@
       docker
 
       #Dev tools
-      neovim 
       gh
       symfony-cli
       yarn
