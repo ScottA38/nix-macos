@@ -30,6 +30,7 @@
     }@inputs:
     let
       primaryUser = "srmes";
+      pkgs = nixpkgs;
     in
     {
       darwinConfigurations."Scotts-MacBook-Pro" = darwin.lib.darwinSystem {

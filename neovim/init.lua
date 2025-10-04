@@ -125,6 +125,3 @@ for _, config in ipairs(lang_config) do
 end
 
 require "keymaps"
-
-vim.o.background = "light"
-vim.cmd [[ colorscheme gruvbox ]]

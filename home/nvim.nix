@@ -5,14 +5,7 @@
     enable = true;
     defaultEditor = true;
     viAlias = true;
-
-    extraPackages = with pkgs; [
-      tree-sitter
-
-      nil
-      nixpkgs-fmt
-      statix
-    ];
+    vimAlias = true;
   };
 
   xdg.configFile.nvim = {

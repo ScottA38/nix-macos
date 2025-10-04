@@ -35,7 +35,9 @@
     shellAliases = {
       la = "ls -la";
       ".." = "cd ..";
-      "darwin-sw" = "sudo darwin-rebuild switch --flake"; 
+      darwin-sw = "sudo darwin-rebuild switch --flake"; 
+      rgrep = "grep -Rin";
+      recents = "find ~/Downloads/ -mtime -1"
     };
 
     dirHashes = {

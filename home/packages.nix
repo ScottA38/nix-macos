@@ -37,6 +37,7 @@
 
       #Dev tools
       gh
+      hugo
       symfony-cli
       yarn
       glow
