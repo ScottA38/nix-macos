@@ -22,7 +22,6 @@
       brave
 
       # misc
-      nil
       biome
       nixfmt-rfc-style
       yt-dlp
