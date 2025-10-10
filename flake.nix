@@ -13,7 +13,6 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # declarative homebrew management
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     flake-utils.url = "github:numtide/flake-utils";
@@ -24,6 +23,7 @@
       self,
       darwin,
       nixpkgs,
+      flake-utils,
       home-manager,
       nix-homebrew,
       ...
@@ -31,15 +31,36 @@
     let
       primaryUser = "srmes";
       pkgs = nixpkgs;
+      pkg-config = {
+        allowUnfree = true;
+      };
+      system = "aarch64-darwin";
     in
     {
       darwinConfigurations."Scotts-MacBook-Pro" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+        inherit system;
         modules = [
           ./darwin
           ./hosts/srmes-laptop/configuration.nix
         ];
         specialArgs = { inherit inputs self primaryUser; };
       };
-    };
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+    } // flake-utils.lib.eachDefaultSystem (system: 
+      let
+        pkgs = import nixpkgs {
+          inherit system pkg-config;
+          overlays = [ ];
+        };
+
+        inherit (pkgs) lib;
+      in
+      {
+        devShell = with pkgs; mkShell {
+          buildInputs = [
+            nodejs
+          ]; 
+        };
+      }
+  );
 }
