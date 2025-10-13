@@ -12,13 +12,6 @@
     # "slack"
   ];
 
-  environment.systemPackages = with pkgs; [
-    curl
-    jq
-    devenv
-    direnv
-  ];
-
   # host-specific home-manager configuration
   home-manager.users.${primaryUser} = {
     home.packages = with pkgs; [

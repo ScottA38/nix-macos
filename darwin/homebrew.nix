@@ -17,6 +17,9 @@
     casks = [
       "ghostty"
       "zed"
+      
+      # Design
+      "inkscape"
 
       # messaging
       "slack"
