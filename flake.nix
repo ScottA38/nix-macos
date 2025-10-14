@@ -54,12 +54,13 @@
         };
 
         inherit (pkgs) lib;
+        nodeShell = import ./shells/node-shell.nix { inherit pkgs; };
+        devopsShell = import ./shells/devops-shell.nix { inherit pkgs; };
       in
       {
-        devShell = with pkgs; mkShell {
-          buildInputs = [
-            nodejs
-          ]; 
+        devShells = {
+          node = pkgs.mkShell nodeShell;
+          devops = pkgs.mkShell devopsShell;
         };
       }
   );
