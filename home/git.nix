@@ -12,6 +12,7 @@
     aliases = {
       s = "status";
       remv = "remote -v";
+      amen = "commit --amend --no-edit";
     };
 
     extraConfig = {

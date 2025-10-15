@@ -5,7 +5,6 @@
       #System tools
       curl
       vim
-      jq
       tmux
       htop
       tree
@@ -14,17 +13,17 @@
       ffmpeg
 
       # shell tools
-      #neovim 
       starship
       vimPlugins.markdown-preview-nvim
 
+      # Code formatters
+      nixfmt-rfc-style
+
       #Browser
-      brave
+      firefox
 
       # misc
       biome
-      nixfmt-rfc-style
-      yt-dlp
       ollama
 
       # fonts
@@ -39,12 +38,9 @@
       hugo
       symfony-cli
       yarn
-      glow
+      glow # Not showing in apps or on $PATH :(
       awscli2
       devenv
-
-      #IDEs
-      vscode
     ];
   };
 }

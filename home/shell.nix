@@ -38,6 +38,7 @@
       darwin-sw = "sudo darwin-rebuild switch --flake"; 
       rgrep = "grep -Rin";
       recents = "find ~/Downloads/ -mtime -1";
+      h-files = "tail -n +1";
     };
 
     dirHashes = {
