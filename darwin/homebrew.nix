@@ -12,6 +12,10 @@
     caskArgs.no_quarantine = true;
     global.brewfile = true;
 
+    brews = [
+      "pam-u2f"
+    ]; 
+
     # homebrew is best for GUI apps
     # nixpkgs is best for CLI tools
     casks = [
@@ -31,6 +35,9 @@
       "keeper-password-manager"
       "obsidian"
       "protonvpn"
+      "brave-browser"
+      "pycharm-ce"
+
 
       #Misc
       "anki"
