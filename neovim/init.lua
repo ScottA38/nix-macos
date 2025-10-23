@@ -115,6 +115,13 @@ local lang_config = {
       vim.opt_local.shiftwidth = 4
     end,
   },
+  {
+    pattern = "toml",
+    callback = function()
+      vim.opt_local.tabstop = 2
+      vim.opt_local.shiftwidth = 2
+    end,
+  },
 }
 
 for _, config in ipairs(lang_config) do
