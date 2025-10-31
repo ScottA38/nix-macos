@@ -8,10 +8,22 @@
 {
   imports = [
     ./homebrew.nix
-    ./packages.nix
     ./settings.nix
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
+  ];
+
+  environment.systemPackages = with pkgs; [
+    curl
+    jq
+    devenv
+
+    imagemagick
+
+    firefox
+    karabiner-elements
+
+    container
   ];
 
   # nix config

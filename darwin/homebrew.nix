@@ -14,14 +14,14 @@
 
     brews = [
       "pam-u2f"
-    ]; 
+    ];
 
     # homebrew is best for GUI apps
     # nixpkgs is best for CLI tools
     casks = [
       "ghostty"
       "zed"
-      
+
       # Design
       "inkscape"
 
@@ -37,7 +37,8 @@
       "protonvpn"
       "brave-browser"
       "pycharm-ce"
-
+      "postman"
+      "libreoffice"
 
       #Misc
       "anki"
