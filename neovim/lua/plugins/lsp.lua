@@ -55,6 +55,7 @@ return {
         typescript = { "prettierd", "prettier", "eslint_d" },
         typescriptreact = { "prettierd", "prettier", "eslint_d" },
         go = { "gofmt" },
+        nix = { "nixfmt" },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -310,11 +311,7 @@ return {
         ts_ls = {},
         eslint = {},
 
-        gopls = {},
-
         zls = {},
-
-        nil_ls = {},
 
         terraformls = {},
 

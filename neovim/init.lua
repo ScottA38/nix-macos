@@ -40,6 +40,7 @@ vim.o.completeopt = "menuone,noselect"
 vim.o.termguicolors = true
 vim.wo.wrap = false
 vim.o.textwidth = 0
+vim.o.splitright = true
 
 vim.bo.softtabstop = 2
 vim.opt.tabstop = 2
