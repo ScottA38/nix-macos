@@ -46,7 +46,9 @@
         specialArgs = { inherit inputs self primaryUser; };
       };
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
-    } // flake-utils.lib.eachDefaultSystem (system: 
+    }
+    // flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs {
           inherit system pkg-config;
@@ -56,12 +58,14 @@
         inherit (pkgs) lib;
         nodeShell = import ./shells/node-shell.nix { inherit pkgs; };
         devopsShell = import ./shells/devops-shell.nix { inherit pkgs; };
+        pythonShell = import ./shells/python-shell.nix { inherit pkgs; };
       in
       {
         devShells = {
           node = pkgs.mkShell nodeShell;
           devops = pkgs.mkShell devopsShell;
+          python = pkgs.mkShell pythonShell;
         };
       }
-  );
+    );
 }
