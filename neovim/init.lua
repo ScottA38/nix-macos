@@ -38,7 +38,6 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.completeopt = "menuone,noselect"
 vim.o.termguicolors = true
-vim.wo.wrap = false
 vim.o.textwidth = 0
 vim.o.splitright = true
 
@@ -118,6 +117,13 @@ local lang_config = {
   },
   {
     pattern = "toml",
+    callback = function()
+      vim.opt_local.tabstop = 2
+      vim.opt_local.shiftwidth = 2
+    end,
+  },
+  {
+    pattern = "json",
     callback = function()
       vim.opt_local.tabstop = 2
       vim.opt_local.shiftwidth = 2

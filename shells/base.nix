@@ -4,12 +4,10 @@
   name = "dev-base";
   description = "Default toolchain";
 
-  buildInputs = with pkgs; [
+  packages = with pkgs; [
     git
     curl
     jq
     direnv
-
-    nodejs
   ];
 }
