@@ -9,7 +9,8 @@
   imports = [
     ./homebrew.nix
     ./settings.nix
-    inputs.home-manager.darwinModules.home-manager
+    ./zsh.nix
+    ./direnv.nix
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
@@ -17,13 +18,17 @@
     curl
     jq
     devenv
+    tree
+    gnupg
+    pinentry_mac
+    chezmoi
 
     imagemagick
-
-    firefox
     karabiner-elements
 
     container
+    neovim
+    starship
   ];
 
   # nix config
@@ -46,20 +51,6 @@
     user = primaryUser;
     enable = true;
     autoMigrate = true;
-  };
-
-  # home-manager config
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.${primaryUser} = {
-      imports = [
-        ../home
-      ];
-    };
-    extraSpecialArgs = {
-      inherit inputs self primaryUser;
-    };
   };
 
   # macOS-specific settings

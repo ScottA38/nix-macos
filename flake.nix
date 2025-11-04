@@ -5,10 +5,6 @@
     # monorepo w/ recipes ("derivations")
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # manages configs
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     # system-level software and settings (macOS)
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +20,6 @@
       darwin,
       nixpkgs,
       flake-utils,
-      home-manager,
       nix-homebrew,
       ...
     }@inputs:
