@@ -9,6 +9,8 @@
   imports = [
     ./homebrew.nix
     ./settings.nix
+    ./zsh.nix
+    ./direnv.nix
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
@@ -17,6 +19,8 @@
     jq
     devenv
     tree
+    gnupg
+    pinentry_mac
     chezmoi
 
     imagemagick

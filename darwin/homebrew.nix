@@ -39,6 +39,7 @@
       "pycharm-ce"
       "postman"
       "libreoffice"
+      "yubico-authenticator"
 
       #Misc
       "anki"
