@@ -14,6 +14,8 @@
 
     brews = [
       "pam-u2f"
+      "awscli"
+      "mysql"
     ];
 
     # homebrew is best for GUI apps
@@ -24,6 +26,7 @@
 
       # Design
       "inkscape"
+      "librecad"
 
       # messaging
       "slack"
@@ -40,6 +43,8 @@
       "postman"
       "libreoffice"
       "yubico-authenticator"
+      "docker-desktop"
+      "google-chrome"
 
       #Misc
       "anki"

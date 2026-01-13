@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ./packages.nix
     ./homebrew.nix
     ./settings.nix
     ./zsh.nix
@@ -17,18 +18,19 @@
   environment.systemPackages = with pkgs; [
     curl
     jq
-    devenv
+    glow
     tree
+    ffmpeg
     gnupg
-    pinentry_mac
-    chezmoi
-
-    imagemagick
-    karabiner-elements
 
     container
+    docker
+
+    pinentry_mac
     neovim
     starship
+
+    git-lfs
   ];
 
   # nix config
@@ -62,6 +64,7 @@
   environment = {
     systemPath = [
       "/opt/homebrew/bin"
+      "/Users/${primaryUser}/.config/python-bin"
     ];
     pathsToLink = [ "/Applications" ];
   };
