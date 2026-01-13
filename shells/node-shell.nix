@@ -12,5 +12,7 @@ in
     ++ (with pkgs; [
       nodejs
       yarn
+      mongodb-atlas-cli
+      typescript
     ]);
 }

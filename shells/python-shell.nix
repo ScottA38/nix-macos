@@ -11,7 +11,12 @@ in
     base.packages
     ++ (with pkgs; [
       (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.pip
         python-pkgs.tkinter
+        python-pkgs.pandas
+        # Dependency of pandas
+        python-pkgs.tabulate
+        python-pkgs.uv
       ]))
     ]);
 }

@@ -6,8 +6,11 @@
 
   packages = with pkgs; [
     git
+    gh
     curl
     jq
     direnv
+    glow
+    awscli2
   ];
 }

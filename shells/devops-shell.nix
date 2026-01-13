@@ -7,11 +7,12 @@ in
   name = "devops";
   description = "Common cli commands for DevOps functions";
 
-  buildInputs =
-    base.buildInputs
+  packages =
+    base.packages
     ++ (with pkgs; [
       go
       hugo
       dart-sass
+      php82
     ]);
 }
