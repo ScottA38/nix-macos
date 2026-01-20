@@ -12,6 +12,7 @@
     ./settings.nix
     ./zsh.nix
     ./direnv.nix
+    ./launchd.nix
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
@@ -24,7 +25,6 @@
     gnupg
 
     container
-    docker
 
     pinentry_mac
     neovim

@@ -16,6 +16,8 @@
       "pam-u2f"
       "awscli"
       "mysql"
+      "docker"
+      "docker-credential-helper-ecr"
     ];
 
     # homebrew is best for GUI apps
@@ -30,11 +32,13 @@
 
       # messaging
       "slack"
+      "element"
 
       # Video-Editing
       "obs"
 
       # other
+      "firefox"
       "keeper-password-manager"
       "obsidian"
       "protonvpn"
