@@ -3,7 +3,7 @@
     serviceConfig = {
       ProgramArguments = [
         "/usr/bin/open"
-        "-a"
+        "-aj"
         "Docker.app"
       ];
       RunAtLoad = true;
