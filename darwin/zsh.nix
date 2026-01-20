@@ -6,6 +6,14 @@
   ...
 }:
 {
+  programs.zsh = {
+    enable = true;
+
+    interactiveShellInit = ''
+      fpath=( ~/.zfunc "''${fpath[@]}" )
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
     zsh-autosuggestions
     zsh-syntax-highlighting
