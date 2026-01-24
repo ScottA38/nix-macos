@@ -14,6 +14,7 @@
 
     brews = [
       "pam-u2f"
+      "ykman"
       "awscli"
       "mysql"
       "docker"

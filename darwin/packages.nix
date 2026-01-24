@@ -5,5 +5,6 @@
     ucto
     chezmoi
     imagemagick
+    airdrop-cli
   ];
 }
