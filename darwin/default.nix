@@ -18,6 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     curl
+    openssh
     jq
     glow
     tree

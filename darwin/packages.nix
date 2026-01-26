@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    gh
+    glow
     ucto
     chezmoi
     imagemagick
