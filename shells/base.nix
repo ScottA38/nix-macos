@@ -5,12 +5,9 @@
   description = "Default toolchain";
 
   packages = with pkgs; [
-    git
-    gh
-    curl
-    jq
-    direnv
-    glow
-    awscli2
+    go
+    hugo
+    dart-sass
+    php82
   ];
 }

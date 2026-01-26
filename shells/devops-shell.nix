@@ -10,9 +10,6 @@ in
   packages =
     base.packages
     ++ (with pkgs; [
-      go
-      hugo
-      dart-sass
-      php82
+      awscli2
     ]);
 }
