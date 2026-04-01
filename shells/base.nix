@@ -9,5 +9,6 @@
     hugo
     dart-sass
     php82
+    awscli2
   ];
 }

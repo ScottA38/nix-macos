@@ -9,10 +9,9 @@ in
 
   packages =
     base.packages
-    ++ (with pkgs; [
-      nodejs
-      yarn
-      mongodb-atlas-cli
-      typescript
-    ]);
+    ++ [
+      pkgs.nodejs
+      pkgs.mongodb-atlas-cli
+      pkgs.typescript
+    ];
 }

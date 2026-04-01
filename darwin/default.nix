@@ -18,6 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     curl
+    inetutils
     openssh
     jq
     glow

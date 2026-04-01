@@ -54,6 +54,7 @@
       #Misc
       "anki"
       "spotify"
+      "notunes"
     ];
   };
 }

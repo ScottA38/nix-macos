@@ -5,8 +5,11 @@
     gh
     glow
     ucto
+    pipx
     chezmoi
     imagemagick
     airdrop-cli
+    ollama
+    claude-code
   ];
 }
