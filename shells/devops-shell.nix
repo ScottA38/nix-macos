@@ -1,15 +1,10 @@
-{ pkgs, ... }:
-
+# devops-shell.nix
+{ pkgs }:
 let
-  base = import ./base.nix { inherit pkgs; };
+  # For now, devops just uses base packages
+  base = import ./base.nix { inherit pkgs; deps = []; };
 in
-{
+base // {
   name = "devops";
-  description = "Common cli commands for DevOps functions";
-
-  packages =
-    base.packages
-    ++ (with pkgs; [
-      awscli2
-    ]);
+  description = "DevOps development environment";
 }

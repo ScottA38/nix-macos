@@ -1,22 +1,10 @@
-{ pkgs, ... }:
-
+# python-shell.nix
+{ pkgs }:
 let
-  base = import ./base.nix { inherit pkgs; };
+  pythonDeps = import ./python-deps.nix { inherit pkgs; };
+  base = import ./base.nix { inherit pkgs; deps = [pythonDeps]; };
 in
-{
+base // {
   name = "python-dev";
-  description = "A python-specific toolchain";
-
-  packages =
-    base.packages
-    ++ (with pkgs; [
-      (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs.pip
-        python-pkgs.tkinter
-        python-pkgs.pandas
-        # Dependency of pandas
-        python-pkgs.tabulate
-        python-pkgs.uv
-      ]))
-    ]);
+  description = "Python development environment";
 }

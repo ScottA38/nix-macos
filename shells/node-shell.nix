@@ -1,17 +1,10 @@
-{ pkgs, ... }:
-
+# node-shell.nix
+{ pkgs }:
 let
-  base = import ./base.nix { inherit pkgs; };
+  nodeDeps = import ./node-deps.nix { inherit pkgs; };
+  base = import ./base.nix { inherit pkgs; deps = [nodeDeps]; };
 in
-{
+base // {
   name = "node-dev";
-  description = "A node-specific toolchain";
-
-  packages =
-    base.packages
-    ++ [
-      pkgs.nodejs
-      pkgs.mongodb-atlas-cli
-      pkgs.typescript
-    ];
+  description = "Node.js development environment";
 }
