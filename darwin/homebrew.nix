@@ -36,6 +36,7 @@
       "element"
 
       # Video-Editing
+      "kdenlive"
       "obs"
 
       # other

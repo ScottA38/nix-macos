@@ -10,6 +10,10 @@
     imagemagick
     airdrop-cli
     ollama
+    tmux
     claude-code
+
+    # Wordpress
+    wp-cli
   ];
 }

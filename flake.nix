@@ -54,12 +54,14 @@
         nodeShell = import ./shells/node-shell.nix { inherit pkgs; };
         devopsShell = import ./shells/devops-shell.nix { inherit pkgs; };
         pythonShell = import ./shells/python-shell.nix { inherit pkgs; };
+        pynode = import ./shells/py-node-shell.nix { inherit pkgs; };
       in
       {
         devShells = {
           node = pkgs.mkShell nodeShell;
           devops = pkgs.mkShell devopsShell;
           python = pkgs.mkShell pythonShell;
+          pynode = pkgs.mkShell pynode;
         };
       }
     );
